@@ -105,11 +105,7 @@ class Admin
 
   public function getMoviesWithBookingDetails()
   {
-    // $this->db->query('SELECT movies.*, COUNT(bookings.id) AS total_tickets_booked, GROUP_CONCAT(users.name SEPARATOR ", ") AS user_details FROM movies LEFT JOIN bookings ON movies.id = bookings.movie_id LEFT JOIN users ON bookings.user_id = users.id GROUP BY movies.id');
-    // $this->db->query('SELECT movies.*, COUNT(bookings.id) AS total_tickets_booked, GROUP_CONCAT(users.name SEPARATOR ", ") AS user_name, GROUP_CONCAT(users.email SEPARATOR ", ") AS user_email FROM movies LEFT JOIN bookings ON movies.id = bookings.movie_id LEFT JOIN users ON bookings.user_id = users.id GROUP BY movies.id');
-
     $this->db->query('SELECT movies.*, (movies.available_tickets - SUM(bookings.tickets)) AS remaining_tickets, SUM(bookings.tickets) AS total_tickets_booked, GROUP_CONCAT(users.name SEPARATOR ", ") AS user_name, GROUP_CONCAT(users.email SEPARATOR ", ") AS user_email FROM movies LEFT JOIN bookings ON movies.id = bookings.movie_id LEFT JOIN users ON bookings.user_id = users.id GROUP BY movies.id');
-
 
     return $this->db->resultSet();
   }
