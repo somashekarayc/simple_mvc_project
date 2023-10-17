@@ -10,8 +10,8 @@
                 <th>Cost</th>
                 <th>Available Tickets</th>
                 <th>Added at</th>
-                <th>Book Single Ticket</th>
-                <th>Book Mutiple Ticket</th>
+                <!-- <th>Book Single Ticket</th> -->
+                <th>Book Tickets</th>
             </tr>
         </thead>
         <tbody>
@@ -22,17 +22,17 @@
                     <td><?php echo $movie->movie_cost; ?></td>
                     <td><?php echo $movie->available_tickets; ?></td>
                     <td><?php echo $movie->created_at; ?></td>
-                    <td class="d-flex">
+                    <!-- <td class="d-flex">
                         <div class="single d-flex mr-5">
-                            <form action="<?php echo URLROOT; ?>/users/bookSingleMovie/<?php echo $movie->id; ?>" method="POST">
+                            <form action="<?php // echo URLROOT; ?>/users/bookSingleMovie/<?php // echo $movie->id; ?>" method="POST">
                                 <button type="submit" class="btn btn-success">Book</button>
                             </form>
                         </div>
-                    </td>
+                    </td> -->
                     <td>
                         <div class="multiple d-flex">
                             <form action="<?php echo URLROOT; ?>/users/bookMultipleMovie/<?php echo $movie->id; ?>" method="POST" class="d-flex">
-                                <input type="number" class="form-control" name="tickets" id="tickets" required>
+                                <input type="number" class="form-control" name="tickets" id="tickets" placeholder="Enter number of Tickets" required>
                                 <button type="submit" class="btn btn-success">Book</button>
                             </form>
                         </div>
