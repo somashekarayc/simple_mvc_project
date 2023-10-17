@@ -249,22 +249,22 @@
 
     
 
-    // public function bookSingleMovie($movie_id) {
-    //   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //     $data = 
-    //     [
-    //       'user_id' => $_SESSION['user_id'],
-    //       'movie_id' => $movie_id,
-    //     ];
-    //       if ($this->userModel->bookSingleMovie($data)) {
-    //           redirect('users/movies');
-    //       } else {
-    //           die('Error occurred while deleting the movie.');
-    //       }
-    //   } else {
-    //       redirect('users/movies');
-    //   }
-    // }
+    public function bookSingleMovie($movie_id) {
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $data = 
+        [
+          'user_id' => $_SESSION['user_id'],
+          'movie_id' => $movie_id,
+        ];
+          if ($this->userModel->bookSingleMovie($data)) {
+              redirect('users/movies');
+          } else {
+              die('Error occurred while deleting the movie.');
+          }
+      } else {
+          redirect('users/movies');
+      }
+    }
 
     // public function bookMultipleMovie($id) {
     //   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
