@@ -65,22 +65,22 @@
       return $row;
     }
 
-    // public function bookSingleMovie($id) {
-    //   $this->db->query('INSERT INTO users (name, email,password) 
-    //   VALUES (:name, :email, :password)');
+    public function bookSingleMovie($id) {
+      $this->db->query('INSERT INTO users (name, email,password) 
+      VALUES (:name, :email, :password)');
 
-    //   // Bind Values
-    //   $this->db->bind(':name', $data['name']);
-    //   $this->db->bind(':email', $data['email']);
-    //   $this->db->bind(':password', $data['password']);
+      // Bind Values
+      $this->db->bind(':name', $data['name']);
+      $this->db->bind(':email', $data['email']);
+      $this->db->bind(':password', $data['password']);
       
-    //   //Execute
-    //   if($this->db->execute()){
-    //     return true;
-    //   } else {
-    //     return false;
-    //   }
-    // }
+      //Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
+    }
 
     public function bookMultipleMovie($movieId, $userId, $tickets) {
       $this->db->query('INSERT INTO bookings (movie_id, user_id, tickets) VALUES (:movie_id, :user_id, :tickets)');
