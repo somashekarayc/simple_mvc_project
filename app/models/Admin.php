@@ -80,7 +80,7 @@ class Admin
     $this->db->bind(':movie_description', $movieData['movie_description']);
     $this->db->bind(':movie_cost', $movieData['movie_cost']);
     $this->db->bind(':available_tickets', $movieData['available_tickets']);
-    $this->db->bind(':available_tickets', $movieData['available_tickets']);
+    // $this->db->bind(':available_tickets', $movieData['available_tickets']);
     $this->db->bind(':created_at', date('Y-m-d'));
 
     if ($this->db->execute()) {
@@ -105,7 +105,9 @@ class Admin
 
   public function getMoviesWithBookingDetails()
   {
+
     $this->db->query('SELECT movies.*, (movies.available_tickets - SUM(bookings.tickets)) AS remaining_tickets, SUM(bookings.tickets) AS total_tickets_booked, GROUP_CONCAT(users.name SEPARATOR ", ") AS user_name, GROUP_CONCAT(users.email SEPARATOR ", ") AS user_email FROM movies LEFT JOIN bookings ON movies.id = bookings.movie_id LEFT JOIN users ON bookings.user_id = users.id GROUP BY movies.id');
+
 
     return $this->db->resultSet();
   }
