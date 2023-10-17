@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2023 at 07:30 PM
+-- Generation Time: Oct 17, 2023 at 08:29 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -34,6 +34,56 @@ CREATE TABLE `admins` (
   `password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `email`, `password`) VALUES
+(1, 'admin', 'admin@gmail.com', '$2y$10$benlZHmnVzD9ofm4HyvXdeheNqqZ9DGbMKSnBes3sGUUeJkTYhNfe');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bookings`
+--
+
+CREATE TABLE `bookings` (
+  `id` int(11) NOT NULL,
+  `movie_id` varchar(255) DEFAULT NULL,
+  `user_id` varchar(255) DEFAULT NULL,
+  `tickets` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`id`, `movie_id`, `user_id`, `tickets`) VALUES
+(1, '1', '1', '1'),
+(2, '1', '1', '2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `movies`
+--
+
+CREATE TABLE `movies` (
+  `id` int(11) NOT NULL,
+  `movie_name` varchar(255) DEFAULT NULL,
+  `movie_description` varchar(255) DEFAULT NULL,
+  `movie_cost` varchar(255) DEFAULT NULL,
+  `available_tickets` varchar(255) DEFAULT NULL,
+  `created_at` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `movies`
+--
+
+INSERT INTO `movies` (`id`, `movie_name`, `movie_description`, `movie_cost`, `available_tickets`, `created_at`) VALUES
+(1, 'movie one', 'movie one\'s description', '1000', '200', '2023-10-17');
+
 -- --------------------------------------------------------
 
 --
@@ -52,7 +102,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
-(1, 'user one', 'userone@gmail.com', '$2y$10$EOUmfdKR7cLnOuwOYE5R8uTNtIkUfAWCXH0MscCpBBMn2bdIpe7Qa');
+(1, 'user one', 'userone@gmail.com', '$2y$10$EOUmfdKR7cLnOuwOYE5R8uTNtIkUfAWCXH0MscCpBBMn2bdIpe7Qa'),
+(2, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -62,6 +113,18 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
 -- Indexes for table `admins`
 --
 ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `bookings`
+--
+ALTER TABLE `bookings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `movies`
+--
+ALTER TABLE `movies`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -78,13 +141,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `bookings`
+--
+ALTER TABLE `bookings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `movies`
+--
+ALTER TABLE `movies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
