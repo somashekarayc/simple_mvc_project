@@ -277,25 +277,12 @@ class Users extends Controller
     }
   }
 
-  // public function bookMultipleMovie($id) {
-  //   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  //     $tickets = $_POST['tickets'];
-  //     if ($this->userModel->bookMultipleMovie($id, $_SESSION['user_id'], $tickets)) {
-  //       redirect('users/movies');
-  //     } else {
-  //       die('Error occurred while booking the movie.');
-  //     }
-  //   } else {
-  //     redirect('users/movies');
-  //   }
-  // }
-
   public function bookMultipleMovie($id)
   {
     if (!$this->isLoggedIn()) {
       redirect('users/login');
     }
-    
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $tickets = $_POST['tickets'];
 

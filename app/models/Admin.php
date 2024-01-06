@@ -80,7 +80,6 @@ class Admin
     $this->db->bind(':movie_description', $movieData['movie_description']);
     $this->db->bind(':movie_cost', $movieData['movie_cost']);
     $this->db->bind(':available_tickets', $movieData['available_tickets']);
-    // $this->db->bind(':available_tickets', $movieData['available_tickets']);
     $this->db->bind(':created_at', date('Y-m-d'));
 
     if ($this->db->execute()) {

@@ -210,7 +210,7 @@ class Admins extends Controller
   // ===========================================================================
   public function storeMovieData()
   {
-    
+
     if (!$this->isLoggedIn()) {
       redirect('admins/login');
     }
@@ -233,57 +233,49 @@ class Admins extends Controller
   }
 
   public function movies()
-{
-  
-  if (!$this->isLoggedIn()) {
-    redirect('admins/login');
-  }
+  {
+
+    if (!$this->isLoggedIn()) {
+      redirect('admins/login');
+    }
 
     $movies = $this->adminModel->getMovies();
     $data = [
-        'movies' => $movies
+      'movies' => $movies
     ];
     $this->view('admins/movies', $data);
-}
-
-
-
-public function deleteMovie($id) {
-  
-  if (!$this->isLoggedIn()) {
-    redirect('admins/login');
   }
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+
+  public function deleteMovie($id)
+  {
+
+    if (!$this->isLoggedIn()) {
+      redirect('admins/login');
+    }
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if ($this->adminModel->deleteMovie($id)) {
-          redirect('admins/movies');
+        redirect('admins/movies');
       } else {
-          die('Error occurred while deleting the movie.');
+        die('Error occurred while deleting the movie.');
       }
-  } else {
+    } else {
       redirect('admins/movies');
+    }
   }
-}
 
-// public function ()
-// {
-//     $movies = $this->adminModel->getMovies();
-//     $data = [
-//         'movies' => $movies
-//     ];
-//     $this->view('admins/booked_movies', $data);
-// }
 
-public function booked_movies() {
-  
-  if (!$this->isLoggedIn()) {
-    redirect('admins/login');
+  public function booked_movies()
+  {
+
+    if (!$this->isLoggedIn()) {
+      redirect('admins/login');
+    }
+    $movies = $this->adminModel->getMoviesWithBookingDetails();
+    $data = [
+      'movies' => $movies
+    ];
+    $this->view('admins/booked_movies', $data);
   }
-  $movies = $this->adminModel->getMoviesWithBookingDetails();
-  $data = [
-    'movies' => $movies
-  ];
-  $this->view('admins/booked_movies', $data);
-}
-
-
 }
