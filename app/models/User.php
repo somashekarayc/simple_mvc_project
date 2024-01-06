@@ -65,7 +65,7 @@
       return $row;
     }
 
-    public function bookSingleMovie($id) {
+    public function bookSingleMovie($data) {
       $this->db->query('INSERT INTO users (name, email,password) 
       VALUES (:name, :email, :password)');
 
