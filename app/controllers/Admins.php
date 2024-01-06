@@ -210,6 +210,11 @@ class Admins extends Controller
   // ===========================================================================
   public function storeMovieData()
   {
+    
+    if (!$this->isLoggedIn()) {
+      redirect('admins/login');
+    }
+
     $movieName = $_POST['movie_name'];
     $movieDescription = $_POST['movie_description'];
     $movieCost = $_POST['movie_cost'];
@@ -229,6 +234,11 @@ class Admins extends Controller
 
   public function movies()
 {
+  
+  if (!$this->isLoggedIn()) {
+    redirect('admins/login');
+  }
+
     $movies = $this->adminModel->getMovies();
     $data = [
         'movies' => $movies
@@ -239,6 +249,10 @@ class Admins extends Controller
 
 
 public function deleteMovie($id) {
+  
+  if (!$this->isLoggedIn()) {
+    redirect('admins/login');
+  }
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if ($this->adminModel->deleteMovie($id)) {
           redirect('admins/movies');
@@ -260,6 +274,10 @@ public function deleteMovie($id) {
 // }
 
 public function booked_movies() {
+  
+  if (!$this->isLoggedIn()) {
+    redirect('admins/login');
+  }
   $movies = $this->adminModel->getMoviesWithBookingDetails();
   $data = [
     'movies' => $movies
