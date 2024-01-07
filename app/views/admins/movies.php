@@ -25,6 +25,12 @@
                 <form action="<?php echo URLROOT; ?>/admins/deleteMovie/<?php echo $movie->id; ?>" method="POST">
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
+          
+            </td>
+            <td>
+            <form action="<?php echo URLROOT; ?>/admins/editMovie/<?php echo $movie->id; ?>" method="POST">
+                    <button type="submit" class="btn btn-secondary">Edit</button>
+                </form>
             </td>
         </tr>
         <?php endforeach; ?>
