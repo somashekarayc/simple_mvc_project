@@ -318,7 +318,7 @@ class Users extends Controller
     if (!$this->isLoggedIn()) {
       redirect('users/login');
     }
-    $movies = $this->adminModel->getMoviesWithBookingDetails();
+    $movies = $this->userModel->getMoviesWithBookingDetails();
     $data = [
       'movies' => $movies
     ];

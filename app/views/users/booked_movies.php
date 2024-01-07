@@ -1,7 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
 <div class="container mx-auto">
-    <!-- Your HTML code for the movies table -->
     <table class="table table-info">
         <thead>
             <tr class="table-danger text-nowrap">
@@ -35,5 +34,3 @@
 
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
-<!-- //<?php //echo ($movie->available_tickets - $movie->tickets); 
-        ?> -->
