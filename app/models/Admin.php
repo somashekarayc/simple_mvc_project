@@ -94,11 +94,13 @@ class Admin
     $movies = $this->db->resultSet();
     return $movies;
   }
-  public function getSingleMovies()
+  public function getSingleMovies($movie_id)
   {
-    $this->db->query('SELECT * FROM movies');
-    $movies = $this->db->resultSet();
-    return $movies;
+    $this->db->query('SELECT * FROM movies WHERE id = :id');
+    $this->db->bind(':id', $movie_id);
+    $row = $this->db->single();
+
+    return $row;
   }
 
   public function deleteMovie($id)

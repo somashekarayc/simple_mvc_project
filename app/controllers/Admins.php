@@ -278,17 +278,17 @@ class Admins extends Controller
     ];
     $this->view('admins/booked_movies', $data);
   }
-  public function editMovie()
+  public function editMovie($movie_id)
   {
 
     if (!$this->isLoggedIn()) {
       redirect('admins/login');
     }
-    $movies = $this->adminModel->getSingleMovies();
+    $movie = $this->adminModel->getSingleMovies($movie_id);
 
     $data = [
-      'movies' => $movies
+      'movie' => $movie
     ];
-    $this->view('admins/booked_movies', $data);
+    $this->view('admins/edit_movie', $data);
   }
 }
