@@ -10,5 +10,5 @@
   // URL Root
   define('URLROOT', 'http://localhost/simple_mvc_project');
   // Site Name
-  define('SITENAME', 'simple_mvc_project');
+  define('SITENAME', 'MvcProject');
   

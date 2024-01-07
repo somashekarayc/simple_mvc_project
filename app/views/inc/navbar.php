@@ -9,9 +9,9 @@
         <li class="nav-item active">
           <a class="nav-link" href="<?php echo URLROOT; ?>/users/movies">Book Movie</a>
         </li>
-        <!-- <li class="nav-item active">
-          <a class="nav-link" href="<?php //echo URLROOT; ?>/admins/booked_movies">Booked Movies</a>
-        </li> -->
+        <li class="nav-item active">
+          <a class="nav-link" href="<?php echo URLROOT; ?>/users/booked_movies">Booked Movies</a>
+        </li>
    
       </ul>
       <ul class="navbar-nav ml-auto">

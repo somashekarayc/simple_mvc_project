@@ -310,4 +310,18 @@ class Users extends Controller
       redirect('users/movies');
     }
   }
+
+
+  public function booked_movies()
+  {
+
+    if (!$this->isLoggedIn()) {
+      redirect('users/login');
+    }
+    $movies = $this->adminModel->getMoviesWithBookingDetails();
+    $data = [
+      'movies' => $movies
+    ];
+    $this->view('users/booked_movies', $data);
+  }
 }
